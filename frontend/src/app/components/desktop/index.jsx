@@ -3,7 +3,7 @@ import Banner from "@/assets/banner";
 export function IndexPageDesktop() {
   return (
     <div className="flex min-h-full">
-      <div className="flex flex-[2] w-[400px] min-w-[400px]">xd</div>
+      <div className="flex flex-[2] w-[400px] min-w-[400px]"></div>
       <div className="w-[1px] bg-gray-900"></div>
       <div className="flex flex-col flex-[3] items-center px-6 py-6 gap-10">
         <div className="flex flex-col items-center justify-evenly flex-1">
