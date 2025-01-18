@@ -1,6 +1,7 @@
-import Banner from "@/assets/banner";
+import React from 'react';
+import Banner from '../../../public/image/banner';
 
-export function IndexPageDesktop() {
+function LandingPage() {
   return (
     <div className="flex min-h-full">
       <div className="flex flex-[2] w-[400px] min-w-[400px]"></div>
@@ -21,3 +22,5 @@ export function IndexPageDesktop() {
     </div>
   );
 }
+
+export default LandingPage;
