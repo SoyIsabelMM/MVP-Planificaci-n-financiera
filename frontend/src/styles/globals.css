@@ -8,8 +8,29 @@
   --foreground: #171717;
 }
 
+@screen sm {
+  :root {
+    --background-secondary: #1a1a1a;
+    --foreground: #333333;
+  }
+}
+
+@screen md {
+  :root {
+    --background-secondary: #2b2b2b;
+    --foreground: #444444;
+  }
+}
+
+@screen lg {
+  :root {
+    --background-secondary: #3c3c3c;
+    --foreground: #555555;
+  }
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "Roboto", serif;
+  font-family: 'Roboto', serif;
 }
