@@ -8,11 +8,11 @@ export default function DashboardLayout({ children, title }) {
   return (
     <div>
       <ShadowBox>
-        <header className="flex ">
+        <header className="flex items-center">
           <h1 className="text-lg flex-1">{title}</h1>
-          <div className="flex gap-4">
+          <div className="flex gap-4 items-center">
             <SearchBar />
-            <div className="flex gap-2">
+            <div className="flex gap-2 items-center">
               <Notification />
               <VerticalDivider />
               <Avatar />
