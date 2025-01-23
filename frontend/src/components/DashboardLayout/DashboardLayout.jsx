@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import ShadowBox from "../ShadowBox";
-import VerticalDivider from "../VerticalDivider";
-import Avatar from "./Avatar";
-import Notification from "./Notification";
-import SearchBar from "./SearchBar";
+import ShadowBox from "../ShadowBox/ShadowBox";
+import VerticalDivider from "../VerticalDivider/VerticalDivider";
+import Avatar from "../Avatar/Avatar";
+import Notification from "../Notification/Notification";
+import SearchBar from "../SearchBar/SearchBar";
 import { SquareAppApplication } from "../../../public/icons/SquareAppApplication";
 import { Server } from "../../../public/icons/Server";
 import { Wallet } from "../../../public/icons/Wallet";
