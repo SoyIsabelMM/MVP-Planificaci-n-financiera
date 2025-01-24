@@ -17,7 +17,7 @@ export const CustomInput = ({
         {label}
       </Label>
 
-      <div className="relative">
+      <div className="relative w-full">
         <Input
           {...props}
           tabIndex={tabIndex}
@@ -34,9 +34,9 @@ export const CustomInput = ({
             <Image
               src={icon}
               alt={`${label} icon`}
-              width={20}
-              height={20}
-              className="h-5 w-5 text-gray-400"
+              width={30}
+              height={35}
+              className="mb-2 text-gray-400"
             />
           </div>
         )}
