@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
-import { Input } from '../Input/xinput';
-import { Label } from '../Label/xlabel';
+import { Input } from '../Input/Input';
+import { Label } from '../Label/Label';
 import Image from 'next/image';
 
 export const CustomInput = ({
