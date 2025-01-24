@@ -46,7 +46,11 @@ export const CustomForm = () => {
   };
 
   return (
-    <form className="space-y-4 w-full max-w-md mx-auto">
+    <form
+      onSubmit={handleSubmit}
+      className="px-1 mt-[12%] flex flex-col  mb-[12%] w-full max-w-md mx-auto  "
+      noValidate
+    >
       {loginFields.map((field) => (
         <CustomInput
           key={field.id}
@@ -65,7 +69,10 @@ export const CustomForm = () => {
         />
       ))}
 
-      <Button type="submit" className="w-full">
+      <Button
+        type="submit"
+        className="w-[200px] h-[45px] mt-[10%] mx-auto text-[20px] font-medium"
+      >
         Ingresar
       </Button>
     </form>
