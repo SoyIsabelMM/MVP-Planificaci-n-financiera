@@ -1,0 +1,55 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .content {
+    flex: 2;
+    min-width: 400px;
+  }
+}
+
+.select {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activated {
+  text-align: center;
+  width: 49%;
+  border-bottom: solid black 5px;
+  cursor: pointer;
+}
+
+.disabled {
+  text-align: center;
+  width: 49%;
+  border-bottom: solid #e5e5e5 5px;
+  cursor: pointer;
+}
+
+.paragraphActivated {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.5;
+  color: black;
+}
+
+.paragraphDisabled {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.5;
+  color: #e5e5e5;
+}
+
+.contentOption {
+  margin: 20px auto;
+}
