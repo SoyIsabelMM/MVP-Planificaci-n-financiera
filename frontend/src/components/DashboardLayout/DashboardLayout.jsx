@@ -20,7 +20,11 @@ import { Bars } from "../../../public/icons/Bars";
 
 const navbarItems = [
   { to: "/dashboard", text: "Inicio", icon: SquareAppApplication },
-  { to: "/dashboard", text: "Transacciones", icon: Server },
+  {
+    to: "/dashboard/transacction/transfer",
+    text: "Transacciones",
+    icon: Server,
+  },
   { to: "/dashboard", text: "Cartera", icon: Wallet },
   { to: "/dashboard", text: "Gastos", icon: CreditCard },
   { to: "/dashboard", text: "Comunidad", icon: Chat },

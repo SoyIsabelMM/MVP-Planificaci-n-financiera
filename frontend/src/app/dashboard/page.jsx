@@ -10,7 +10,6 @@ import {
   ArrowUp,
   ShoppingBag,
   Train,
-  TvMinimal,
   TvMinimalIcon,
 } from "lucide-react";
 import { CreditCard } from "../../../public/icons/CreditCard";
