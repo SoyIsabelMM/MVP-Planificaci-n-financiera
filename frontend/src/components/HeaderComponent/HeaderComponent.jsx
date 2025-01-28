@@ -15,11 +15,6 @@ import {
 export function HeaderComponent() {
   const [selectCountry, setSelectCountry] = useState(contries[0]);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isCountryMenuOpen, setIsCountryMenuOpen] = useState(false);
-
-  const toggleCountryMenuOpen = () => {
-    setIsCountryMenuOpen(!isCountryMenuOpen);
-  };
 
   const toggleMobileOpen = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
