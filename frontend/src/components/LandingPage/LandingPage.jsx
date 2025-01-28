@@ -1,62 +1,41 @@
-'use client';
 import React from 'react';
-import Banner from '../../../public/image/banner';
-import style from '@/styles/content.module.css';
+import { HeaderComponent } from '../HeaderComponent/HeaderComponent';
+import Image from 'next/image';
+import { Button } from '@/components/ButtonCustom/ButtonCustom';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
-function LandingPage({ children }) {
-  const pathname = usePathname();
-
-  const isSignin = pathname === '/signin';
-  const isSignup = pathname === '/signup';
-
+function LandingPage() {
   return (
-    <div className="flex flex-col-reverse md:flex-row min-h-screen">
-      <div className="flex flex-col flex-1 md:flex-[2] w-full md:w-[400px] md:min-w-[400px] ">
-        <div className={style.select}>
-          <div className={isSignin ? style.activated : style.disabled}>
-            <Link href="/signin">
-              <p
-                className={
-                  isSignin ? style.paragraphActivated : style.paragraphDisabled
-                }
-              >
-                Soy cliente
-              </p>
-            </Link>
-          </div>
+    <section className="pt-10 flex flex-col items-center">
+      <HeaderComponent />
 
-          <div className={isSignup ? style.activated : style.disabled}>
-            <Link href="/signup">
-              <p
-                className={
-                  isSignup ? style.paragraphActivated : style.paragraphDisabled
-                }
-              >
-                No soy cliente
-              </p>
-            </Link>
-          </div>
-        </div>
-        {children}
-      </div>
+      <div className="flex flex-col items-center text-center px-4 sm:px-8 lg:px-20">
+        <h1 className="mt-[5%] text-3xl sm:text-4xl lg:text-5xl font-medium">
+          IUPI, la única Fintech que necesitas
+        </h1>
 
-      <div className="hidden md:block w-[1px] bg-divider"></div>
+        <p className="mt-10 mx-[15%] text-sm sm:text-base lg:text-lg leading-relaxed">
+          Fomentar una cultura de ahorro e inversión responsable en Argentina,
+          proporcionando herramientas accesibles y personalizadas para que las
+          personas puedan crecer financieramente, cumplir sus objetivos y
+          adaptarse a los desafíos de un entorno económico incierto.
+        </p>
 
-      <div className="flex flex-col flex-1 md:flex-[3] items-center px-4 md:px-6 py-6 gap-10">
-        <div className="flex flex-col items-center justify-evenly flex-1">
-          <h1 className="text-3xl md:text-4xl font-bold text-black">IUPI</h1>
-          <p className="text-base md:text-xl text-justify px-4 ">
-            En iUpi, te ayudamos a ahorrar e invertir de manera inteligente y
-            adaptada a tus metas personales. Con portafolios personalizados y
-            recomendaciones diseñadas para ti, te acompañamos en cada paso hacia
-            tus objetivos financieros. ¡Empieza hoy y transforma tu futuro!
-          </p>
-          <Banner />
+        <div className="bg-[#DDA7FF] mt-8 w-full max-w-2xl h-auto flex items-center justify-center rounded-lg">
+          <Image
+            src="/image/money-transfer.svg"
+            alt="banner"
+            width={500}
+            height={500}
+            className="w-full max-w-sm sm:max-w-md lg:max-w-lg"
+          />
         </div>
       </div>
-    </div>
+
+      <Button className="w-[80%] sm:w-[50%] lg:w-[30%] h-[45px] font-light text-base sm:text-lg lg:text-xl mt-8 mb-10 bg-white text-black border border-black hover:bg-black hover:text-white transition ease-in-out duration-300">
+        <Link href="/signup">Crea tu cuenta en IUPI</Link>
+      </Button>
+    </section>
   );
 }
 
