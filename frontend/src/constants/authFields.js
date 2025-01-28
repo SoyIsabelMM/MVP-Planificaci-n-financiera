@@ -30,3 +30,46 @@ export const loginFields = [
     autoComplete: 'dni',
   },
 ];
+
+export const registerFields = [
+  {
+    id: 'dniField',
+    name: 'dni',
+    type: 'text',
+    label: 'DNI',
+    placeholder: 'DNI',
+    icon: '/image/dni-icon.png',
+    tabindex: 1,
+    autoComplete: 'dni',
+  },
+  {
+    id: 'firstName',
+    name: 'firstName',
+    type: 'text',
+    label: 'Nombre completo',
+    placeholder: 'Nombre completo',
+    icon: '/image/dni-icon.png',
+    tabIndex: 2,
+    autoComplete: 'firstName',
+  },
+  {
+    id: 'emailField',
+    name: 'email',
+    type: 'email',
+    label: 'Correo electronico',
+    placeholder: 'Usuario',
+    icon: '/image/user-icon.png',
+    tabIndex: 3,
+    autoComplete: 'email',
+  },
+  {
+    id: 'passwordField',
+    name: 'password',
+    type: 'password',
+    placeholder: 'Contraseña',
+    label: 'Contraseña',
+    icon: '/image/eye-open-icon.png',
+    tabIndex: 4,
+    activeForgot: true,
+  },
+];

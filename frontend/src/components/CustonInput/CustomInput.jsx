@@ -22,7 +22,7 @@ export const CustomInput = ({
           {...props}
           tabIndex={tabIndex}
           className={cn(
-            'pl-4 pr-10 py-2 text-[17px] border-t-0 border-x-0 border-b-2 rounded-none',
+            'pl-4 pr-10 py-2 text-[17px] border-t-0 border-x-0 border-b-2 rounded-none mb-5',
             'focus:ring-0 focus:border-primary focus:outline-none',
             'transition-colors duration-200',
             error ? 'border-red-500' : 'border-gray-300',
