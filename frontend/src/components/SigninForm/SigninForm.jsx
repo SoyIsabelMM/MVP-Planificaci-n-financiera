@@ -1,25 +1,17 @@
 import style from '@/styles/content.module.css';
 import { CustomForm } from '../CustomForm/CustomForm';
+import { loginFields } from '@/constants/authFields';
+import Link from 'next/link';
 
 export const SigninForm = () => {
   return (
     <div className={style.content}>
-      <div className={style.select}>
-        <div className={style.activated}>
-          <p className={style.paragraphActivated}>Soy cliente</p>
-        </div>
-
-        <div className={style.disabled}>
-          <p className={style.paragraphDisabled}> No soy cliente</p>
-        </div>
-      </div>
-
       <h2 className="text-4xl font-normal text-black ml-8 mb-3">Bienvenido</h2>
 
       <h4 className="text-xl font-normal text-black ml-8">
         Completa tus datos para ingresar
       </h4>
-      <CustomForm />
+      <CustomForm fields={loginFields} nameBtn="Ingresar" />
       <div className={style.contentOption}>
         <p className="font-medium text-base text-grayCustom mb-2">
           Si no tenés u olvidaste tu clave y/o usuario
@@ -30,7 +22,9 @@ export const SigninForm = () => {
       </div>
       <p className="font-medium text-base text-center text-wrap mb-8 text-grayCustom">
         ¿Aún no sos cliente?{' '}
-        <span className="text-black cursor-pointer">Crear usuario</span>
+        <Link href="/signup">
+          <span className="text-black cursor-pointer">Crear usuario</span>
+        </Link>
       </p>
     </div>
   );
