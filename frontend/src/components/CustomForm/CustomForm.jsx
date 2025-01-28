@@ -2,11 +2,10 @@
 import { useState } from 'react';
 import { Button } from '../ButtonCustom/ButtonCustom';
 import { CustomInput } from '../CustonInput/CustomInput';
-import { loginFields } from '@/constants/authFields';
-
-export const CustomForm = () => {
+import Link from 'next/link';
+export const CustomForm = ({ fields, nameBtn }) => {
   const [formData, setFormData] = useState(
-    loginFields.reduce((acc, field) => ({ ...acc, [field.name]: '' }), {})
+    fields.reduce((acc, field) => ({ ...acc, [field.name]: '' }), {})
   );
 
   const [errors, setErrors] = useState({});
@@ -20,7 +19,7 @@ export const CustomForm = () => {
   const validateForm = () => {
     const newErrors = {};
 
-    loginFields.forEach((field) => {
+    fields.forEach((field) => {
       if (
         field.name === 'email' &&
         !/\S+@\S+\.\S+/.test(formData[field.name])
@@ -51,7 +50,7 @@ export const CustomForm = () => {
       className="px-1 mt-[12%] flex flex-col  mb-[12%] w-full max-w-md mx-auto  "
       noValidate
     >
-      {loginFields.map((field) => (
+      {fields.map((field) => (
         <CustomInput
           key={field.id}
           label={field.label}
@@ -73,7 +72,7 @@ export const CustomForm = () => {
         type="submit"
         className="w-[200px] h-[45px] mt-[10%] mx-auto text-[20px] font-medium"
       >
-        Ingresar
+        <Link href="/dashboard">{nameBtn}</Link>
       </Button>
     </form>
   );

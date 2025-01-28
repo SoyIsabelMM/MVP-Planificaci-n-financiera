@@ -1,10 +1,44 @@
+'use client';
 import React from 'react';
 import Banner from '../../../public/image/banner';
+import style from '@/styles/content.module.css';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 function LandingPage({ children }) {
+  const pathname = usePathname();
+
+  const isSignin = pathname === '/signin';
+  const isSignup = pathname === '/signup';
+
   return (
     <div className="flex flex-col-reverse md:flex-row min-h-screen">
-      <div className="flex flex-1 md:flex-[2] w-full md:w-[400px] md:min-w-[400px] ">
+      <div className="flex flex-col flex-1 md:flex-[2] w-full md:w-[400px] md:min-w-[400px] ">
+        <div className={style.select}>
+          <div className={isSignin ? style.activated : style.disabled}>
+            <Link href="/signin">
+              <p
+                className={
+                  isSignin ? style.paragraphActivated : style.paragraphDisabled
+                }
+              >
+                Soy cliente
+              </p>
+            </Link>
+          </div>
+
+          <div className={isSignup ? style.activated : style.disabled}>
+            <Link href="/signup">
+              <p
+                className={
+                  isSignup ? style.paragraphActivated : style.paragraphDisabled
+                }
+              >
+                No soy cliente
+              </p>
+            </Link>
+          </div>
+        </div>
         {children}
       </div>
 
