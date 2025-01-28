@@ -29,8 +29,8 @@ const navbarItems = [
   { to: "/dashboard", text: "Ayuda", icon: Headphones },
 ];
 
-export default function DashboardLayout({ children, title }) {
-  const [isCollapse, setIsCollapse] = useState(false);
+export default function DashboardLayout({ children, title, className }) {
+  const [isCollapse, setIsCollapse] = useState(true);
 
   return (
     <div className="p-2">
@@ -85,7 +85,9 @@ export default function DashboardLayout({ children, title }) {
             </div>
           </aside>
         </ShadowBox>
-        <main className="absolute min-[841px]:w-[calc(100%-14rem)] w-full top-[74px] min-[841px]:left-[14rem]">
+        <main
+          className={`absolute min-[841px]:w-[calc(100%-14rem)] w-full top-[74px] min-[841px]:left-[14rem] flex flex-col gap-4 h-[calc(100vh-74px-1rem)] py-2 overflow-x-auto overflow-y-auto ${className}`}
+        >
           {children}
         </main>
       </div>
