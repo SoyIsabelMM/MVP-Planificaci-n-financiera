@@ -10,7 +10,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '../DropdownMenu/xdropdownMenu';
+} from '../DropdownMenu/DropdownMenu';
 
 export function HeaderComponent() {
   const [selectCountry, setSelectCountry] = useState(contries[0]);
