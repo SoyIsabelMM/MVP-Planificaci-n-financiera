@@ -21,7 +21,7 @@ export function HeaderComponent() {
   };
 
   return (
-    <div className="bg-white shadow-sm mx-[5%] rounded-md">
+    <div className="bg-white  mx-[5%] rounded-md">
       <nav className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
