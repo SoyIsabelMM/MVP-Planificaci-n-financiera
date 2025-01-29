@@ -1,12 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import HorizontalDivider from "@/components/HorizontalDivider/HorizontalDivider";
 import { CreditCard, Plus } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ButtonCustom/ButtonCustom";
 import { useSearchParams } from "next/navigation";
 import OTPInput from "react-otp-input";
 import { PrimaryButton } from "@/components/Button/Button";
+import { CustomInput } from "@/components/CustonInput/CustomInput";
+import { useCustomForm } from "@/components/CustomForm/form.hook";
+import {
+  transferenceToExistingAccountFields,
+  transferenceToNewAccountFields,
+} from "@/constants/withdraw";
+import CustomSelector from "@/components/CustomSelector/CustomSelector";
+import CustomCheckbox from "@/components/CustomCheckbox/CustomCheckbox";
 
 const myAccounts = [
   { name: "Juan Carlos Ramirez", bankName: "BBVA", account: "85 0000 1234" },
@@ -71,14 +80,14 @@ function Step1() {
       <h2 className="font-semibold mt-4 text-xl">Cuentas Propias</h2>
       <div>
         {myAccounts.map((account, index) => (
-          <>
-            <div key={index} className="py-2">
+          <React.Fragment key={index}>
+            <div className="py-2">
               <p className="font-semibold">{account.name}</p>
               <p className="text-gray-500">{account.bankName}</p>
               <p className="">{account.account}</p>
             </div>
             {index < myAccounts.length - 1 ? <HorizontalDivider /> : null}
-          </>
+          </React.Fragment>
         ))}
       </div>
     </section>
@@ -86,25 +95,143 @@ function Step1() {
 }
 
 function Step2NewAccount() {
+  const { handleSubmit, handleChange, formData, errors } = useCustomForm(
+    transferenceToNewAccountFields
+  );
+
   return (
     <section>
       <h2 className="font-semibold text-xl mb-2">Ingresa los datos</h2>
+      <form onSubmit={handleSubmit} noValidate className="flex w-full gap-4">
+        <div className="flex flex-col w-full gap-2">
+          <CustomInputText
+            {...transferenceToNewAccountFields[0]}
+            onChange={handleChange}
+          />
+          <CustomSelector
+            {...transferenceToNewAccountFields[1]}
+            className="!bg-gray-300 p-2"
+            customClass="!bg-gray-300"
+            onChange={handleChange}
+          />
+          <CustomInputText
+            {...transferenceToNewAccountFields[2]}
+            onChange={handleChange}
+          />
+          <CustomCheckbox
+            {...transferenceToNewAccountFields[3]}
+            className="!bg-gray-300 p-2"
+            customClass="!bg-gray-300"
+            onChange={handleChange}
+          />
+          <CustomInputText
+            {...transferenceToNewAccountFields[4]}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex flex-col w-full gap-2">
+          <CustomInputText
+            {...transferenceToNewAccountFields[5]}
+            onChange={handleChange}
+          />
+          <CustomSelector
+            {...transferenceToNewAccountFields[6]}
+            className="!bg-gray-300 p-2"
+            customClass="!bg-gray-300"
+            onChange={handleChange}
+          />
+          <CustomInputText
+            {...transferenceToNewAccountFields[7]}
+            onChange={handleChange}
+            placeholder="Nombre"
+          />
+          <CustomSelector
+            {...transferenceToNewAccountFields[8]}
+            className="!bg-gray-300 p-2"
+            customClass="!bg-gray-300"
+            onChange={handleChange}
+          />
+
+          <Button
+            type="submit"
+            className="w-[200px] h-[45px] mx-auto text-[20px] font-medium"
+          >
+            <Link href="?step=3&type=new-account">Continuar</Link>
+          </Button>
+        </div>
+      </form>
     </section>
   );
 }
 
 function Step2Accounts() {
+  const { handleSubmit, handleChange, formData, errors } = useCustomForm(
+    transferenceToExistingAccountFields
+  );
+
   return (
     <section className="flex w-full gap-4">
-      <div>
-        <h2 className="font-semibold text-xl mb-2">
-          Selecciona los beneficiarios
-        </h2>
-      </div>
-      <div>
-        <h2 className="font-semibold text-xl mb-2">Introduce los datos</h2>
-      </div>
+      <form className="flex w-full gap-4" onSubmit={handleSubmit} noValidate>
+        <div className="w-full">
+          <h2 className="font-semibold text-xl mb-2">
+            Selecciona los beneficiarios
+          </h2>
+          <div className="flex flex-col w-full gap-2">
+            <CustomInputText
+              {...transferenceToExistingAccountFields[0]}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+        <div className="w-full">
+          <h2 className="font-semibold text-xl mb-2">Introduce los datos</h2>
+          <div className="flex flex-col w-full gap-2">
+            <CustomInputText
+              {...transferenceToExistingAccountFields[1]}
+              error={errors[1]}
+              onChange={handleChange}
+            />
+            <CustomSelector
+              {...transferenceToExistingAccountFields[2]}
+              error={errors[2]}
+              className="!bg-gray-300 p-2"
+              customClass="!bg-gray-300"
+              onChange={handleChange}
+            />
+            <CustomInputText
+              {...transferenceToExistingAccountFields[3]}
+              error={errors[3]}
+              onChange={handleChange}
+            />
+            <CustomSelector
+              {...transferenceToExistingAccountFields[4]}
+              error={errors[4]}
+              className="!bg-gray-300 p-2"
+              customClass="!bg-gray-300"
+              onChange={handleChange}
+            />
+
+            <Button
+              type="submit"
+              className="w-[200px] h-[45px] mx-auto text-[20px] font-medium"
+            >
+              <Link href="?step=3&type=new-account">Continuar</Link>
+            </Button>
+          </div>
+        </div>
+      </form>
     </section>
+  );
+}
+
+function CustomInputText(props) {
+  return (
+    <CustomInput
+      {...props}
+      className="!bg-gray-300 p-2"
+      customClass="!bg-gray-300 p-1 pr-11"
+      showLabel={true}
+    />
   );
 }
 

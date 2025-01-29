@@ -1,40 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ShadowBox from "../ShadowBox/ShadowBox";
 import VerticalDivider from "../VerticalDivider/VerticalDivider";
 import Avatar from "../Avatar/Avatar";
 import Notification from "../Notification/Notification";
 import SearchBar from "../SearchBar/SearchBar";
-import { SquareAppApplication } from "../../../public/icons/SquareAppApplication";
-import { Server } from "../../../public/icons/Server";
-import { Wallet } from "../../../public/icons/Wallet";
-import { CreditCard } from "../../../public/icons/CreditCard";
-import { Chat } from "../../../public/icons/Chat";
-import { Recommend } from "../../../public/icons/Recommend";
-import { Settings } from "../../../public/icons/Settings";
-import { Headphones } from "../../../public/icons/Headphones";
 import { Logout } from "../../../public/icons/Logout";
 import { Bars } from "../../../public/icons/Bars";
-
-const navbarItems = [
-  { to: "/dashboard", text: "Inicio", icon: SquareAppApplication },
-  {
-    to: "/dashboard/transacction/transfer",
-    text: "Transacciones",
-    icon: Server,
-  },
-  { to: "/dashboard", text: "Cartera", icon: Wallet },
-  { to: "/dashboard", text: "Gastos", icon: CreditCard },
-  { to: "/dashboard", text: "Comunidad", icon: Chat },
-  { to: "/dashboard", text: "Recomendaciones", icon: Recommend },
-  { to: "/dashboard", text: "Configuración", icon: Settings },
-  { to: "/dashboard", text: "Ayuda", icon: Headphones },
-];
+import { navbarItems } from "@/constants/dashboard";
 
 export default function DashboardLayout({ children, title, className }) {
   const [isCollapse, setIsCollapse] = useState(true);
+
+  useEffect(() => {
+    document.body.style.backgroundColor = "#FBF3FF";
+  }, []);
 
   return (
     <div className="p-2">

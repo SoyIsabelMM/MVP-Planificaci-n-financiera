@@ -1,22 +1,19 @@
 import { cn } from "@/lib/utils";
-import { Input } from "../Input/Input";
 import { Label } from "../Label/Label";
-import Image from "next/image";
 
-export const CustomInput = ({
+export default function CustomSelector({
   label,
-  icon,
-  error,
   className,
   customClass,
   tabIndex,
+  options,
   showLabel = false,
   items = [],
   ...props
-}) => {
+}) {
   return (
     <div className="mb-5">
-      <div className={cn("relative mb-1", className)}>
+      <div className={cn("relative", className)}>
         {showLabel && (
           <Label htmlFor={props.id} className="block text-gray-700 mb-2">
             {label}
@@ -24,30 +21,23 @@ export const CustomInput = ({
         )}
 
         <div className="relative w-full">
-          <Input
+          <select
             {...props}
             tabIndex={tabIndex}
             className={cn(
               "pl-4 pr-10 py-2 text-[17px] border-t-0 border-x-0 border-b-2 rounded-none",
               "focus:ring-0 focus:border-primary focus:outline-none",
-              "transition-colors duration-200",
-              error ? "border-red-500" : "border-gray-300",
+              "transition-colors duration-200 w-full",
               customClass
             )}
-          />
-          {icon && (
-            <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-              <Image
-                src={icon}
-                alt={`${label} icon`}
-                width={30}
-                height={35}
-                className="mb-2 text-gray-400"
-              />
-            </div>
-          )}
+          >
+            {options.map((option, index) => (
+              <option key={index} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
         </div>
-        {error && <p className="mt-1 text-xs text-red-500">{error}</p>}
       </div>
       {items.map((item, index) => (
         <p
@@ -59,4 +49,4 @@ export const CustomInput = ({
       ))}
     </div>
   );
-};
+}
