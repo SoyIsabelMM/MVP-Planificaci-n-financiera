@@ -5,47 +5,11 @@ import ShadowBox from "@/components/ShadowBox/ShadowBox";
 import { useState } from "react";
 import { EyeInvisible } from "../../../public/icons/EyeInvisible";
 import { Eye } from "../../../public/icons/Eye";
-import {
-  ArrowDown,
-  ArrowUp,
-  ShoppingBag,
-  Train,
-  TvMinimal,
-  TvMinimalIcon,
-} from "lucide-react";
-import { CreditCard } from "../../../public/icons/CreditCard";
+import { ArrowDown } from "lucide-react";
 import Link from "next/link";
 import { Cell, Pie, PieChart } from "recharts";
-import { Bars } from "../../../public/icons/Bars";
-
-const actionsLinks = [
-  { text: "Retirar", href: "#", icon: ArrowUp },
-  { text: "Ingresar", href: "#", icon: ArrowDown },
-  { text: "Cartera", href: "#", icon: CreditCard },
-];
-
-const months = [
-  { value: "january", label: "Enero" },
-  { value: "february", label: "Febrero" },
-  { value: "march", label: "Marzo" },
-  { value: "april", label: "Abril" },
-  { value: "may", label: "Mayo" },
-  { value: "june", label: "Junio" },
-  { value: "july", label: "Julio" },
-  { value: "august", label: "Agosto" },
-  { value: "september", label: "Septiembre" },
-  { value: "october", label: "Octubre" },
-  { value: "november", label: "Noviembre" },
-  { value: "december", label: "Diciembre" },
-];
-
-const data = [
-  { name: "Group A", value: 80, label: Train },
-  { name: "Group B", value: 70, label: Bars },
-  { name: "Group C", value: 170, label: ShoppingBag },
-  { name: "Group D", value: 40, label: TvMinimalIcon },
-];
-const COLORS = ["#979fd7", "#797fa4", "#32364d", "#1e2a79"];
+import { actionsLinks, data } from "@/constants/dashboard";
+import { MonthSelector } from "@/components/MonthSelector/MonthSelector";
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -55,7 +19,6 @@ const renderCustomizedLabel = ({
   innerRadius,
   outerRadius,
   percent,
-  index,
 }) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.15;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -135,7 +98,7 @@ export default function DashboardPage() {
         <ShadowBox className="flex gap-4 flex-col min-[450px]:w-[450px]">
           <div className="flex items-center justify-between w-full">
             <p>Operaciones</p>
-            <MonthsSelector />
+            <MonthSelector />
           </div>
           <div>
             <table>
@@ -160,7 +123,7 @@ export default function DashboardPage() {
         <ShadowBox className="flex gap-4 flex-col min-[320px]:w-[320px]">
           <div className="flex items-center justify-between w-full">
             <p>Gastos Mensuales</p>
-            <MonthsSelector />
+            <MonthSelector />
           </div>
           <div className="flex items-center justify-center w-full">
             <PieChart width={160} height={160}>
@@ -179,7 +142,9 @@ export default function DashboardPage() {
                 {data.map((entry, index) => (
                   <Cell
                     key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
+                    fill={
+                      ["#979fd7", "#797fa4", "#32364d", "#1e2a79"][index % 4]
+                    }
                   />
                 ))}
               </Pie>
@@ -194,17 +159,5 @@ export default function DashboardPage() {
         </ShadowBox>
       </section>
     </DashboardLayout>
-  );
-}
-
-function MonthsSelector() {
-  return (
-    <select className="bg-black text-white rounded-sm px-1 overflow-y-auto">
-      {months.map(({ value, label }, index) => (
-        <option value={value} className="text-white" key={index}>
-          {label}
-        </option>
-      ))}
-    </select>
   );
 }
