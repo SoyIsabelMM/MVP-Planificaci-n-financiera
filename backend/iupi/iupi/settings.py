@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import datetime
 from pathlib import Path
 from dotenv import load_dotenv
+import dj_database_url
 import os
 
 
@@ -88,15 +89,7 @@ WSGI_APPLICATION = 'iupi.wsgi.application'
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': f'{os.getenv("POSTGRES_DB")}',
-        'USER': f'{os.getenv("POSTGRES_USER")}',
-        'PASSWORD': f'{os.getenv("POSTGRES_PASSWORD")}',
-        'HOST': f'{os.getenv("POSTGRES_HOST", "127.0.0.1")}',
-        'PORT': f'{os.getenv("POSTGRES_PORT", "5432")}',
-                'URL': f'postgresql://{os.getenv("POSTGRES_USER")}:{os.getenv("POSTGRES_PASSWORD")}@{os.getenv("POSTGRES_HOST", "127.0.0.1")}/{os.getenv("POSTGRES_DB")}'
-    }
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
 
