@@ -37,10 +37,6 @@ export const actionsLinks = [
 ];
 
 export const data = [
-  { name: "Group A", value: 80, label: Train },
-  { name: "Group B", value: 70, label: Bars },
-  { name: "Group C", value: 170, label: ShoppingBag },
-  { name: "Group D", value: 40, label: TvMinimalIcon },
   { name: "Group A", value: 80 },
   { name: "Group B", value: 70 },
   { name: "Group C", value: 170 },
