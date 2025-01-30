@@ -20,10 +20,10 @@ class UserRegisterSerializers(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'email', 'username', 'first_name', 'last_name']
+        fields = [field.name for field in User._meta.fields if field.name != 'password']
 
 
 class UserUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name']
+        fields = [field.name for field in User._meta.fields if field.name != 'password']
