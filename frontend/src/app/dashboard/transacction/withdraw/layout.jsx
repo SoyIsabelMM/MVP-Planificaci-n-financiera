@@ -1,12 +1,13 @@
-"use client";
+'use client';
 
-import DashboardLayout from "@/components/DashboardLayout/DashboardLayout";
-import { useSearchParams } from "next/navigation";
+import DashboardLayout from '@/components/DashboardLayout/DashboardLayout';
+import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
-export default function TransferLayout({ children }) {
+function TransferContent({ children }) {
   const searchParams = useSearchParams();
-  const step = searchParams.get("step")
-    ? parseInt(searchParams.get("step"), 10)
+  const step = searchParams.get('step')
+    ? parseInt(searchParams.get('step'), 10)
     : 1;
 
   return (
@@ -25,5 +26,13 @@ export default function TransferLayout({ children }) {
       </section>
       {children}
     </DashboardLayout>
+  );
+}
+
+export default function TransferLayout({ children }) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <TransferContent>{children}</TransferContent>
+    </Suspense>
   );
 }
