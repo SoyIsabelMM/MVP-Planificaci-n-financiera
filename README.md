@@ -70,8 +70,7 @@
 
 ### Video iUPi
 
-
-[![Video iUPi](https://github.com/No-Country-simulation/h4-07-fintech/blob/main/img/video.png)]([https://www.youtube.com/watch?v=CMKMeqgAcH4](https://www.loom.com/share/eb74f7328aa644539fe956bffa2342ad?sid=3f6ff130-d881-4655-b630-79a06928673a))
+[![Video iUPi](https://github.com/No-Country-simulation/h4-07-fintech/blob/main/img/video.png)](https://www.loom.com/share/eb74f7328aa644539fe956bffa2342ad?sid=3f6ff130-d881-4655-b630-79a06928673a)
 
 ### Demo
 
