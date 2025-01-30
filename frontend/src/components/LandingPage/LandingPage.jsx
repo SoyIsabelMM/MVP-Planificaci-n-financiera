@@ -1,8 +1,8 @@
-import React from 'react';
-import { HeaderComponent } from '../HeaderComponent/HeaderComponent';
-import Image from 'next/image';
-import { Button } from '@/components/ButtonCustom/ButtonCustom';
-import Link from 'next/link';
+import React from "react";
+import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
+import Image from "next/image";
+import { Button } from "@/components/ButtonCustom/ButtonCustom";
+import Link from "next/link";
 
 function LandingPage() {
   return (
@@ -10,11 +10,11 @@ function LandingPage() {
       <HeaderComponent />
 
       <div className="flex flex-col items-center text-center px-4 sm:px-8 lg:px-20">
-        <h1 className="mt-[5%] text-3xl sm:text-4xl lg:text-5xl font-medium">
+        <h1 className="mt-[5%] text-3xl sm:text-4xl lg:text-5xl font-medium text-white">
           IUPI, la única Fintech que necesitas
         </h1>
 
-        <p className="mt-10 mx-[15%] text-sm sm:text-base lg:text-lg leading-relaxed">
+        <p className="mt-10 mx-[15%] text-sm sm:text-base lg:text-lg leading-relaxed text-white">
           Fomentar una cultura de ahorro e inversión responsable en Argentina,
           proporcionando herramientas accesibles y personalizadas para que las
           personas puedan crecer financieramente, cumplir sus objetivos y

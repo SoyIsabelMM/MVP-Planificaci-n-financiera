@@ -1,36 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ShadowBox from "../ShadowBox/ShadowBox";
 import VerticalDivider from "../VerticalDivider/VerticalDivider";
 import Avatar from "../Avatar/Avatar";
 import Notification from "../Notification/Notification";
 import SearchBar from "../SearchBar/SearchBar";
-import { SquareAppApplication } from "../../../public/icons/SquareAppApplication";
-import { Server } from "../../../public/icons/Server";
-import { Wallet } from "../../../public/icons/Wallet";
-import { CreditCard } from "../../../public/icons/CreditCard";
-import { Chat } from "../../../public/icons/Chat";
-import { Recommend } from "../../../public/icons/Recommend";
-import { Settings } from "../../../public/icons/Settings";
-import { Headphones } from "../../../public/icons/Headphones";
 import { Logout } from "../../../public/icons/Logout";
 import { Bars } from "../../../public/icons/Bars";
-
-const navbarItems = [
-  { to: "/dashboard", text: "Inicio", icon: SquareAppApplication },
-  { to: "/dashboard", text: "Transacciones", icon: Server },
-  { to: "/dashboard", text: "Cartera", icon: Wallet },
-  { to: "/dashboard", text: "Gastos", icon: CreditCard },
-  { to: "/dashboard", text: "Comunidad", icon: Chat },
-  { to: "/dashboard", text: "Recomendaciones", icon: Recommend },
-  { to: "/dashboard", text: "Configuración", icon: Settings },
-  { to: "/dashboard", text: "Ayuda", icon: Headphones },
-];
+import { navbarItems } from "@/constants/dashboard";
 
 export default function DashboardLayout({ children, title, className }) {
   const [isCollapse, setIsCollapse] = useState(true);
+
+  useEffect(() => {
+    document.body.style.backgroundColor = "#FBF3FF";
+  }, []);
 
   return (
     <div className="p-2">
@@ -86,7 +72,7 @@ export default function DashboardLayout({ children, title, className }) {
           </aside>
         </ShadowBox>
         <main
-          className={`absolute min-[841px]:w-[calc(100%-14rem)] w-full top-[74px] min-[841px]:left-[14rem] flex flex-col gap-4 h-[calc(100vh-74px-1rem)] py-2 overflow-x-auto overflow-y-auto ${className}`}
+          className={`absolute min-[841px]:w-[calc(100%-14rem)] w-full top-[74px] min-[841px]:left-[14rem] flex flex-col gap-4 h-[calc(100vh-74px-1rem)] py-2 overflow-x-auto overflow-y-auto ${className} max-[840px]:w-full max-w-2xl px-4`}
         >
           {children}
         </main>
