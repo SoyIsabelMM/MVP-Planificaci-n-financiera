@@ -1,11 +1,12 @@
-"use client";
-import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
+'use client';
+import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
 
 const backgroundColors = [
-  { path: "/", color: "#263238" },
-  { path: "/dashboard", color: "#FBF3FF", start: true },
-  { path: "/finding", color: "#FBF3FF" },
+  { path: '/', color: '#263238' },
+  { path: '/dashboard', color: '#FBF3FF', start: true },
+  { path: '/finding', color: '#FBF3FF' },
+  { path: '/community', color: '#FBF3FF' },
 ];
 
 export default function DynamicBackground({ children }) {
@@ -21,7 +22,7 @@ export default function DynamicBackground({ children }) {
     <div
       className="min-h-screen"
       style={{
-        backgroundColor: foundBackground ? foundBackground.color : "white",
+        backgroundColor: foundBackground ? foundBackground.color : 'white',
       }}
     >
       {children}
