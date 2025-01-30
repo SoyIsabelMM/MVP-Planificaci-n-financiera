@@ -1,31 +1,32 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import ShadowBox from "@/components/ShadowBox/ShadowBox";
-import VerticalDivider from "@/components/VerticalDivider/VerticalDivider";
-import Avatar from "@/components/Avatar/Avatar";
-import Notification from "@/components/Notification/Notification";
-import SearchBar from "@/components/SearchBar/SearchBar";
-import { Logout } from "../../../public/icons/Logout";
-import { Bars } from "../../../public/icons/Bars";
-import { navbarItems } from "@/constants/dashboard";
-import { usePathname } from "next/navigation";
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import ShadowBox from '@/components/ShadowBox/ShadowBox';
+import VerticalDivider from '@/components/VerticalDivider/VerticalDivider';
+import Avatar from '@/components/Avatar/Avatar';
+import Notification from '@/components/Notification/Notification';
+import SearchBar from '@/components/SearchBar/SearchBar';
+import { Logout } from '../../../public/icons/Logout';
+import { Bars } from '../../../public/icons/Bars';
+import { navbarItems } from '@/constants/dashboard';
+import { usePathname } from 'next/navigation';
 
 const titles = [
-  { path: "/dashboard", title: "Dashboard" },
-  { path: "/dashboard/transaction/withdraw", title: "Transacciones" },
-  { path: "/finding", title: "Recomendaciones" },
+  { path: '/dashboard', title: 'Dashboard' },
+  { path: '/dashboard/transaction/withdraw', title: 'Transacciones' },
+  { path: '/finding', title: 'Recomendaciones' },
+  { path: '/community', title: 'Comunidad' },
 ];
 
 export default function DashboardLayout({ children }) {
   const pathname = usePathname();
   const [isCollapse, setIsCollapse] = useState(true);
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
 
   useEffect(() => {
     const foundTitle = titles.find((t) => t.path === pathname);
-    setTitle(foundTitle ? foundTitle.title : "Sin título");
+    setTitle(foundTitle ? foundTitle.title : 'Sin título');
   }, [pathname]);
 
   return (
@@ -52,7 +53,7 @@ export default function DashboardLayout({ children }) {
         </ShadowBox>
         <ShadowBox
           className={`absolute max-[840px]:top-[74px] z-50 w-52 bg-white max-[840px]:h-[calc(100vh-74px-1rem)] h-[calc(100vh-1rem)] ${
-            isCollapse ? "max-[840px]:-left-72" : ""
+            isCollapse ? 'max-[840px]:-left-72' : ''
           } `}
         >
           <aside className="flex flex-col w-full h-full gap-4">

@@ -6,9 +6,9 @@ import { talks } from '@/constants/comments';
 
 function CommunityComponent() {
   return (
-    <section className="flex flex-row items-start justify-around gap-4 p-10">
+    <section className="flex flex-row items-start justify-around p-0 ">
       <div className="flex-1">
-        <div className="sticky top-0 bg-white z-10 py-4 ">
+        <div className="h-14 sticky top-0 bg-[#FBF3FF] z-10 pb-4 ">
           <h3 className="font-normal text-3xl text-center">
             Foro de Comunidad
           </h3>
@@ -21,7 +21,7 @@ function CommunityComponent() {
       </div>
 
       <div className="flex-1">
-        <div className="sticky top-0 bg-white z-10 py-4 ">
+        <div className="sticky top-0 bg-[#FBF3FF] z-10 pb-4 ">
           <h3 className="font-normal text-3xl text-center">
             Charlas de expertos
           </h3>
