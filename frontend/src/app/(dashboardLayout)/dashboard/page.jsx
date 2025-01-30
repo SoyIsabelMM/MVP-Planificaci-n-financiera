@@ -1,10 +1,9 @@
 "use client";
 
-import DashboardLayout from "@/components/DashboardLayout/DashboardLayout";
 import ShadowBox from "@/components/ShadowBox/ShadowBox";
 import { useState } from "react";
-import { EyeInvisible } from "../../../public/icons/EyeInvisible";
-import { Eye } from "../../../public/icons/Eye";
+import { EyeInvisible } from "../../../../public/icons/EyeInvisible";
+import { Eye } from "../../../../public/icons/Eye";
 import { ArrowDown } from "lucide-react";
 import Link from "next/link";
 import { Cell, Pie, PieChart } from "recharts";
@@ -45,9 +44,9 @@ export default function DashboardPage() {
   const [showBalance, setShowBalance] = useState(false);
 
   return (
-    <DashboardLayout title="Dashboard">
+    <>
       <section>
-        <ShadowBox className="flex gap-4 flex-col min-[460px]:w-72">
+        <ShadowBox className="flex gap-4 flex-col min-[460px]:w-72 bg-white">
           <div className="flex items-center justify-between w-full">
             <p>Total expresado en pesos</p>
             <button
@@ -79,7 +78,7 @@ export default function DashboardPage() {
         </ShadowBox>
       </section>
       <section>
-        <ShadowBox className="flex justify-between gap-4 min-[460px]:w-72">
+        <ShadowBox className="flex justify-between gap-4 min-[460px]:w-72 bg-white">
           {actionsLinks.map((item, index) => (
             <Link
               href={item.href}
@@ -95,7 +94,7 @@ export default function DashboardPage() {
         </ShadowBox>
       </section>
       <section className="flex flex-wrap gap-4">
-        <ShadowBox className="flex gap-4 flex-col min-[450px]:w-[450px]">
+        <ShadowBox className="flex gap-4 flex-col min-[450px]:w-[450px] bg-white">
           <div className="flex items-center justify-between w-full">
             <p>Operaciones</p>
             <MonthSelector />
@@ -120,7 +119,7 @@ export default function DashboardPage() {
             </span>
           </ShadowBox>
         </ShadowBox>
-        <ShadowBox className="flex gap-4 flex-col min-[320px]:w-[320px]">
+        <ShadowBox className="flex gap-4 flex-col min-[320px]:w-[320px] bg-white">
           <div className="flex items-center justify-between w-full">
             <p>Gastos Mensuales</p>
             <MonthSelector />
@@ -158,6 +157,6 @@ export default function DashboardPage() {
           </ShadowBox>
         </ShadowBox>
       </section>
-    </DashboardLayout>
+    </>
   );
 }

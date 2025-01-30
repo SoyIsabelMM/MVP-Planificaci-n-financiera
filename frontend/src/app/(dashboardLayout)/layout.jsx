@@ -2,21 +2,31 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import ShadowBox from "../ShadowBox/ShadowBox";
-import VerticalDivider from "../VerticalDivider/VerticalDivider";
-import Avatar from "../Avatar/Avatar";
-import Notification from "../Notification/Notification";
-import SearchBar from "../SearchBar/SearchBar";
+import ShadowBox from "@/components/ShadowBox/ShadowBox";
+import VerticalDivider from "@/components/VerticalDivider/VerticalDivider";
+import Avatar from "@/components/Avatar/Avatar";
+import Notification from "@/components/Notification/Notification";
+import SearchBar from "@/components/SearchBar/SearchBar";
 import { Logout } from "../../../public/icons/Logout";
 import { Bars } from "../../../public/icons/Bars";
 import { navbarItems } from "@/constants/dashboard";
+import { usePathname } from "next/navigation";
 
-export default function DashboardLayout({ children, title, className }) {
+const titles = [
+  { path: "/dashboard", title: "Dashboard" },
+  { path: "/dashboard/transaction/withdraw", title: "Transacciones" },
+  { path: "/finding", title: "Recomendaciones" },
+];
+
+export default function DashboardLayout({ children }) {
+  const pathname = usePathname();
   const [isCollapse, setIsCollapse] = useState(true);
+  const [title, setTitle] = useState("");
 
   useEffect(() => {
-    document.body.style.backgroundColor = "#FBF3FF";
-  }, []);
+    const foundTitle = titles.find((t) => t.path === pathname);
+    setTitle(foundTitle ? foundTitle.title : "Sin título");
+  }, [pathname]);
 
   return (
     <div className="p-2">
@@ -71,9 +81,7 @@ export default function DashboardLayout({ children, title, className }) {
             </div>
           </aside>
         </ShadowBox>
-        <main
-          className={`absolute min-[841px]:w-[calc(100%-14rem)] w-full top-[74px] min-[841px]:left-[14rem] flex flex-col gap-4 h-[calc(100vh-74px-1rem)] py-2 overflow-x-auto overflow-y-auto ${className} max-[840px]:w-full max-w-2xl px-4`}
-        >
+        <main className="absolute min-[841px]:w-[calc(100%-14rem)] w-full top-[74px] min-[841px]:left-[14rem] flex flex-col gap-4 h-[calc(100vh-74px-1rem)] py-2 overflow-x-auto overflow-y-auto p-2">
           {children}
         </main>
       </div>

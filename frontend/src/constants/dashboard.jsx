@@ -21,7 +21,7 @@ export const navbarItems = [
   { to: "/dashboard", text: "Cartera", icon: Wallet },
   { to: "/dashboard", text: "Gastos", icon: CreditCard },
   { to: "/dashboard", text: "Comunidad", icon: Chat },
-  { to: "/dashboard", text: "Recomendaciones", icon: Recommend },
+  { to: "/finding", text: "Recomendaciones", icon: Recommend },
   { to: "/dashboard", text: "Configuración", icon: Settings },
   { to: "/dashboard", text: "Ayuda", icon: Headphones },
 ];
@@ -29,7 +29,7 @@ export const navbarItems = [
 export const actionsLinks = [
   {
     text: "Retirar",
-    href: "/dashboard/transacction/withdraw?step=1",
+    href: "/dashboard/transaction/withdraw?step=1",
     icon: ArrowUp,
   },
   { text: "Ingresar", href: "#", icon: ArrowDown },
