@@ -1,28 +1,23 @@
-"use client";
+'use client';
 
-import ShadowBox from "@/components/ShadowBox/ShadowBox";
-import { useState } from "react";
-import { EyeInvisible } from "../../../../public/icons/EyeInvisible";
-import { Eye } from "../../../../public/icons/Eye";
-import { ArrowDown } from "lucide-react";
-import Link from "next/link";
-import {
-  Bar,
-  BarChart,
-  Cell,
-  Pie,
-  PieChart,
-  ResponsiveContainer,
-} from "recharts";
+import ShadowBox from '@/components/ShadowBox/ShadowBox';
+import { useState } from 'react';
+import { EyeInvisible } from '../../../../public/icons/EyeInvisible';
+import { Eye } from '../../../../public/icons/Eye';
+import { ArrowDown } from 'lucide-react';
+import Link from 'next/link';
+import { Bar, BarChart, Cell, Pie, PieChart } from 'recharts';
 import {
   actionsLinks,
   data,
   data2,
   data3,
   myInstruments,
-} from "@/constants/dashboard";
-import { MonthSelector } from "@/components/MonthSelector/MonthSelector";
-import HorizontalDivider from "@/components/HorizontalDivider/HorizontalDivider";
+} from '@/constants/dashboard';
+import { MonthSelector } from '@/components/MonthSelector/MonthSelector';
+import HorizontalDivider from '@/components/HorizontalDivider/HorizontalDivider';
+import Modal from '@/components/Modal/Modal';
+import { useEffect } from 'react';
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -42,7 +37,7 @@ const renderCustomizedLabel = ({
       x={x}
       y={y}
       fill="white"
-      textAnchor={x > cx ? "start" : "end"}
+      textAnchor={x > cx ? 'start' : 'end'}
       dominantBaseline="central"
     >
       {`${(percent * 100).toFixed(0)}%`}
@@ -51,15 +46,27 @@ const renderCustomizedLabel = ({
 };
 
 export default function DashboardPage() {
-  const balance = "2.896.367,56";
-  const balanceHidden = "*".repeat(balance.length);
-  const increment = "30.569";
+  const balance = '2.896.367,56';
+  const balanceHidden = '*'.repeat(balance.length);
+  const increment = '30.569';
   const incrementPercentage = 0.68;
 
   const [showBalance, setShowBalance] = useState(false);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    const userLoggedIn = true;
+    const modalClosed = localStorage.getItem('modalClosed');
+
+    if (userLoggedIn && !modalClosed) {
+      setIsModalOpen(true);
+    }
+  }, []);
+
   return (
     <>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}></Modal>
       <div className="flex gap-4 max-[1220px]:flex-col">
         <div className="flex min-[1220px]:flex-col max-[900px]:flex-col gap-4">
           <section>
@@ -83,10 +90,10 @@ export default function DashboardPage() {
                 </p>
                 <span
                   className={`${
-                    incrementPercentage >= 0 ? "text-green-500" : "text-red-500"
+                    incrementPercentage >= 0 ? 'text-green-500' : 'text-red-500'
                   } font-semibold`}
                 >
-                  {incrementPercentage ? "▲" : "▼"} {increment} (
+                  {incrementPercentage ? '▲' : '▼'} {increment} (
                   {incrementPercentage}%)
                 </span>
               </div>
@@ -148,11 +155,11 @@ export default function DashboardPage() {
                     <p className="text">{item.price}</p>
                     <div
                       className={`${
-                        item.difference < 0 ? "bg-red-700" : "bg-green-700"
+                        item.difference < 0 ? 'bg-red-700' : 'bg-green-700'
                       } py-[2px] px-1`}
                     >
                       <span className="text-sm text-white">
-                        {item.difference > 0 ? "▲" : "▼"} {item.difference}%
+                        {item.difference > 0 ? '▲' : '▼'} {item.difference}%
                       </span>
                     </div>
                   </div>
@@ -186,11 +193,11 @@ export default function DashboardPage() {
                     </p>
                     <div
                       className={`${
-                        item.increment ? "bg-red-700" : "bg-green-700"
+                        item.increment ? 'bg-red-700' : 'bg-green-700'
                       } py-[1px]`}
                     >
                       <span className="text-xs text-white">
-                        {item.increment ? "▲" : "▼"} {item.value} (
+                        {item.increment ? '▲' : '▼'} {item.value} (
                         {item.percentage}%)
                       </span>
                     </div>
@@ -198,12 +205,12 @@ export default function DashboardPage() {
                   <HorizontalDivider />
                   <p>Total: ${item.total}</p>
                   <p>
-                    Rendimiento:{" "}
+                    Rendimiento:{' '}
                     <span
                       className={
-                        item.yield[0] === "-"
-                          ? "text-red-700"
-                          : "text-green-700"
+                        item.yield[0] === '-'
+                          ? 'text-red-700'
+                          : 'text-green-700'
                       }
                     >
                       ${item.yield}
@@ -238,7 +245,7 @@ export default function DashboardPage() {
                     <Cell
                       key={`cell-${index}`}
                       fill={
-                        ["#979fd7", "#797fa4", "#32364d", "#1e2a79"][index % 4]
+                        ['#979fd7', '#797fa4', '#32364d', '#1e2a79'][index % 4]
                       }
                     />
                   ))}
@@ -246,7 +253,7 @@ export default function DashboardPage() {
               </PieChart>
             </div>
             <ShadowBox className="bg-gray-100 flex items-center justify-between py-1 cursor-pointer">
-              <span>Ver más</span>{" "}
+              <span>Ver más</span>{' '}
               <span>
                 <ArrowDown />
               </span>
