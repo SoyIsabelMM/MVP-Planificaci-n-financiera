@@ -1,12 +1,22 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
+import { Suspense, useMemo } from "react";
 
 export default function TransferLayout({ children }) {
+  return (
+    <Suspense fallback={<div>Cargando...</div>}>
+      <TransferContent>{children}</TransferContent>
+    </Suspense>
+  );
+}
+
+function TransferContent({ children }) {
   const searchParams = useSearchParams();
-  const step = searchParams.get("step")
-    ? parseInt(searchParams.get("step"), 10)
-    : 1;
+  const step = useMemo(() => {
+    const stepParam = searchParams.get("step");
+    return stepParam ? parseInt(stepParam, 10) : 1;
+  }, [searchParams]);
 
   return (
     <div className="max-[840px]:w-full max-w-2xl px-4">
