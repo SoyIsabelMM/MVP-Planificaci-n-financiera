@@ -14,10 +14,12 @@ export default function TransferLayout({ children }) {
         <div className="h-1 bg-gray-200 rounded w-full">
           <div
             className="h-1 bg-gray-500 rounded"
-            style={{ width: `${(step / 3) * 100}%` }}
+            style={{
+              width: `${([1, 2, 3].includes(step) ? step / 3 : 1) * 100}%`,
+            }}
           ></div>
         </div>
-        <span>({step}/3)</span>
+        {[1, 2, 3].includes(step) ? <span>({step}/3)</span> : null}
       </section>
       {children}
     </div>

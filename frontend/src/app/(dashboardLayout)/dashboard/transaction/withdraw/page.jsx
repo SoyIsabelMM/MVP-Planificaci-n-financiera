@@ -16,6 +16,9 @@ import {
 } from "@/constants/withdraw";
 import CustomSelector from "@/components/CustomSelector/CustomSelector";
 import CustomCheckbox from "@/components/CustomCheckbox/CustomCheckbox";
+import { BannerSuccessTransfer } from "../../../../../../public/image/banner-success-transfer";
+import { Share } from "../../../../../../public/icons/Share";
+import { Download } from "../../../../../../public/icons/Download";
 
 const myAccounts = [
   { name: "Juan Carlos Ramirez", bankName: "BBVA", account: "85 0000 1234" },
@@ -47,6 +50,7 @@ export default function TransferPage() {
       {step === 2 && type === "new-account" ? <Step2NewAccount /> : null}
       {step === 2 && type === "accounts" ? <Step2Accounts /> : null}
       {step === 3 ? <Step3 /> : null}
+      {step === 4 ? <Step4 /> : null}
     </>
   );
 }
@@ -102,7 +106,11 @@ function Step2NewAccount() {
   return (
     <section>
       <h2 className="font-semibold text-xl mb-2">Ingresa los datos</h2>
-      <form onSubmit={handleSubmit} noValidate className="flex w-full gap-4">
+      <form
+        onSubmit={handleSubmit}
+        noValidate
+        className="flex w-full gap-4 max-[500px]:flex-wrap"
+      >
         <div className="flex flex-col w-full gap-2">
           <CustomInputText
             {...transferenceToNewAccountFields[0]}
@@ -171,7 +179,11 @@ function Step2Accounts() {
 
   return (
     <section className="flex w-full gap-4">
-      <form className="flex w-full gap-4" onSubmit={handleSubmit} noValidate>
+      <form
+        className="flex w-full gap-4 max-[500px]:flex-wrap"
+        onSubmit={handleSubmit}
+        noValidate
+      >
         <div className="w-full">
           <h2 className="font-semibold text-xl mb-2">
             Selecciona los beneficiarios
@@ -312,9 +324,63 @@ function Step3() {
             </p>
           </div>
           <div className="w-full my-2">
-            <PrimaryButton text="Confirmar" className="w-full" />
+            <Button className="w-full h-[45px] mx-auto text-[20px] font-medium">
+              <Link href="?step=4&type=new-account">Continuar</Link>
+            </Button>
           </div>
           <p className="font-bold">Selecciona otra forma</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Step4() {
+  return (
+    <section className="flex w-full py-4 max-[700px]:flex-col-reverse">
+      <div className="flex items-center justify-center w-full">
+        <BannerSuccessTransfer />
+      </div>
+      <div className="flex flex-col items-center justify-center w-full">
+        <h3 className="text-3xl text-center font-medium">
+          !Transferencia enviada con éxito!
+        </h3>
+        <p className="py-4">22 de enero del 2025</p>
+        <div className="w-full flex flex-col items-center">
+          <div className="flex flex-col items-center py-4">
+            <p className="flex items-start font-extrabold text-5xl">
+              $ 40 <span className="text-xl">00</span>
+            </p>
+          </div>
+          <HorizontalDivider />
+          <div className="flex flex-col items-center py-4">
+            <p className="font-bold">Juan Carlos Ramirez</p>
+            <p className="text-gray-500">BBVA</p>
+            <p>85 0000 1234</p>
+          </div>
+          <HorizontalDivider />
+          <div className="flex flex-col items-center py-4">
+            <p className="text-gray-500">Concepto</p>
+            <p className="font-bold">Descripción del concepto</p>
+          </div>
+        </div>
+        <div className="flex flex-col items-center w-full">
+          <div className="flex gap-6">
+            <div className="flex items-center gap-2 cursor-pointer">
+              <Share className="size-6" />
+              <p>Compartir</p>
+            </div>
+            <div className="flex items-center gap-2 cursor-pointer">
+              <Download className="size-6" />
+              <p>Descargar</p>
+            </div>
+          </div>
+          <div className="flex items-center w-full py-4">
+            <PrimaryButton text="Revisar tus movimientos" className="w-full" />
+          </div>
+          <Link href="/dashboard" className="font-medium">
+            Ir a inicio
+          </Link>
         </div>
       </div>
     </section>
