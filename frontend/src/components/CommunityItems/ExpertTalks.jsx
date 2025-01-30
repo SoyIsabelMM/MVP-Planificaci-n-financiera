@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function ExpertTalks({ talks }) {
   return (
-    <div className="max-h-[800px] overflow-y-auto">
+    <div className="max-h-[800px] overflow-y-auto w-full">
       {talks.slice(0, 8).map((talk, index) => (
         <div
           key={index}
@@ -30,7 +30,7 @@ export default function ExpertTalks({ talks }) {
             </h2>
           </div>
 
-          <div className="p-4  max-w-[450px]">
+          <div className="  max-w-[450px]">
             <h3 className=" p-2 font-bold text-lg mb-1">{talk.speaker}</h3>
             <p className=" px-2 text-gray-600 text-lg mb-2">{talk.date}</p>
 
