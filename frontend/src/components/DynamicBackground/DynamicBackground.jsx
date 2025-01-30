@@ -1,4 +1,5 @@
 "use client";
+import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
 const backgroundColors = [
@@ -16,9 +17,14 @@ export default function DynamicBackground({ children }) {
       : false
   );
 
-  const backgroundClass = foundBackground
-    ? `bg-[${foundBackground.color}]`
-    : "bg-white text-black";
-
-  return <div className={`${backgroundClass} min-h-screen`}>{children}</div>;
+  return (
+    <div
+      className="min-h-screen"
+      style={{
+        backgroundColor: foundBackground ? foundBackground.color : "white",
+      }}
+    >
+      {children}
+    </div>
+  );
 }

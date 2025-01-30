@@ -1,12 +1,6 @@
 export function BannerSuccessTransfer() {
   return (
-    <svg
-      width="588"
-      height="588"
-      viewBox="0 0 588 588"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 588 588" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M588 420.379H0V420.673H588V420.379Z" fill="#EBEBEB" />
       <path
         d="M529.082 439.301H490.133V439.595H529.082V439.301Z"
