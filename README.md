@@ -1,7 +1,7 @@
 # iUPi
 
 <p align="center">
-  <img width="460" height="450" src="">
+  <img width="460" height="450" src="https://github.com/No-Country-simulation/h4-07-fintech/blob/main/img/logo.png">
 </p>
 
 ### Table of Contents
@@ -71,13 +71,13 @@
 ### Video iUPi
 
 
-[![Video iUPi](h)]([https://www.youtube.com/watch?v=CMKMeqgAcH4](https://www.loom.com/share/eb74f7328aa644539fe956bffa2342ad?sid=3f6ff130-d881-4655-b630-79a06928673a))
+[![Video iUPi](https://github.com/No-Country-simulation/h4-07-fintech/blob/main/img/video.png)]([https://www.youtube.com/watch?v=CMKMeqgAcH4](https://www.loom.com/share/eb74f7328aa644539fe956bffa2342ad?sid=3f6ff130-d881-4655-b630-79a06928673a))
 
 ### Demo
 
 You can try the live demo by clicking on the following link:
 
-[View Demo]()
+[View Demo](https://h4-07-fintech.vercel.app/)
 
 #### Languages and Tools
 <p align="left">
