@@ -65,7 +65,7 @@
 |----------------------------|--------------------------------------------|-------------------------------------------------------------------------|
 | Clone the project       |https://github.com/No-Country-simulation/h4-07-fintech.git | Clone the project repository to your local machine.     |
 | Install dependencies    | npm install                               | Install all required dependencies for the project.      |
-| Run Predictive Fraud Detector       |npm run dec                    | Run the app                                  |
+| Run Predictive Fraud Detector       |npm run dev                   | Run the app                                  |
 ---
 
 ### Video iUPi
