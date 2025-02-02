@@ -1,0 +1,1 @@
+web: gunicorn iupi.iupi.wsgi --log-file -
