@@ -6,7 +6,16 @@ class UserRegisterSerializers(serializers.ModelSerializer):
     """ Class Register User Serializers """
     class Meta:
         model = User
-        fields = ['id', 'email', 'username', 'password']
+        fields = ['username', 'email', 'password', 'first_name', 'last_name', 'dni']
+        extra_kwargs = {
+            'username': {'required': True},
+            'email': {'required': True},
+            'password': {'required': True},
+            'first_name': {'required': True},
+            'last_name': {'required': True},
+            'dni': {'required': True},
+        }
+
 
     def create(self, validated_data):
         password = validated_data.pop('password', None)
