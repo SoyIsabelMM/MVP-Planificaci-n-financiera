@@ -64,7 +64,7 @@ MIDDLEWARE = [
 ]
 
 
-ROOT_URLCONF = 'iupi.iupi.urls'
+ROOT_URLCONF = 'iupi.urls'
 
 TEMPLATES = [
     {
@@ -82,7 +82,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'iupi.iupi.wsgi.application'
+WSGI_APPLICATION = 'iupi.wsgi.application'
 
 
 # Database
@@ -92,11 +92,17 @@ WSGI_APPLICATION = 'iupi.iupi.wsgi.application'
 import os
 import dj_database_url
 
-# Configuración de la base de datos en Django usando la URL externa de Render
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL') 
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': f'{os.getenv("POSTGRES_DB")}',
+        'USER': f'{os.getenv("POSTGRES_USER")}',
+        'PASSWORD': f'{os.getenv("POSTGRES_PASSWORD")}',
+        'HOST': f'{os.getenv("POSTGRES_HOST", "127.0.0.1")}',
+        'PORT': f'{os.getenv("POSTGRES_PORT", "5432")}',
+                'URL': f'postgresql://{os.getenv("POSTGRES_USER")}:{os.getenv("POSTGRES_PASSWORD")}@{os.getenv("POSTGRES_HOST", "127.0.0.1")}/{os.getenv("POSTGRES_DB")}'
+    }
 }
 
 
