@@ -68,7 +68,18 @@ Develop a financial planning application for individuals in unstable economic en
 
 ## Project Development
 
-## Development Phases
+#### Development Phases
+
+| **Item**              | **Description**                           |
+|-----------------------|-------------------------------------------|
+| **Login, Registration, and Onboarding**              | Allows users to securely sign in or register, with an onboarding process to guide them through app setup and financial goal configuration. |
+| **Personalized Dashboard** | Provides a customizable overview of the user's financial status, including savings, investment performance, and personalized recommendations.|
+| **Investment Management** | Enables users to track and manage investments, view portfolio performance, and receive tailored investment suggestions. |
+| **Account Settings**      | Allows users to update personal information, financial goals, privacy settings, and connect/disconnect financial tools. |
+| **Community and News** | Offers a space for users to engage with financial news, connect with the community, and access personalized recommendations based on market trends and investment strategies. |
+
+
+
 
 
 ---
