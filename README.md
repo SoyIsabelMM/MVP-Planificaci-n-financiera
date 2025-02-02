@@ -36,19 +36,32 @@
 | **Project Manager**   |                               |
 
 ---
-
 ## Project Planning
 
-## Project Description
+### Project Description
 
+The IUPI "Savings and Investments" project aims to create a financial planning app for environments with high inflation rates, such as in Argentina. Its purpose is to provide a savings management option to help users achieve financial goals and objectives through investments. This way, it seeks to eliminate self-imposed barriers and financially include people in the capital market. The project uses backend, frontend, Machine Learning, and QA techniques.
 
-## General Objective
+### General Objective
 
+Develop a financial planning application for individuals in unstable economic environments, enabling them to manage their savings, invest, and achieve financial goals through an intuitive interface and personalized analytical tools.
 
-## Specific Objectives
+### Specific Objectives
 
+- Create a secure and reliable login system.
+- Develop a dashboard to track savings and financial goals.
+- Implement a section for managing financial asset inventories.
+- Include an account settings section where users can adjust their preferences.
+- Create an online community for sharing financial news and advice.
+- Incorporate Machine Learning techniques for personalized investment recommendations.
 
-## Project Requirements
+### Project Requirements
+
+- **Backend**: Python, Postgres, Django.
+- **Frontend**: React, Next.js.
+- **Machine Learning**: For personalized recommendations.
+- **Quality Assurance (QA)**: App testing and validation.
+
 
 
 ---
