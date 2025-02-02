@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-waj!q%l*z5=wy5@-_#a*&gvp+m-v8)oplx&myk2v$sp)++jz8r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 
 
 # Application definition
@@ -60,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 
@@ -88,9 +89,16 @@ WSGI_APPLICATION = 'iupi.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
+import os
+import dj_database_url
+
+# Configuración de la base de datos en Django usando la URL externa de Render
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL') 
+    )
 }
+
 
 
 # Password validation
@@ -147,5 +155,7 @@ AUTH_USER_MODEL = 'users.User'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS: True
+CORS_ALLOWED_ORIGINS = [
+    "https://h4-07-fintech.vercel.app",
+]
+CORS_ALLOW_CREDENTIALS = True
