@@ -89,10 +89,6 @@ WSGI_APPLICATION = 'iupi.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
-import os
-import dj_database_url
-
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
