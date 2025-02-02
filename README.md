@@ -88,8 +88,10 @@ Develop a financial planning application for individuals in unstable economic en
 | Step                       | Command                                    | Description                                                             |
 |----------------------------|--------------------------------------------|-------------------------------------------------------------------------|
 | Clone the project       |https://github.com/No-Country-simulation/h4-07-fintech.git | Clone the project repository to your local machine.     |
-| Install dependencies    | npm install                               | Install all required dependencies for the project.      |
-| Run Predictive Fraud Detector       |npm run dev                   | Run the app                                  |
+| Install dependencies  backend  | pip3 install -r requirements.txt                               | Install all required dependencies for the project.      |
+| Run Predictive Fraud Detector       |python3 manage.py runserver                | Run the backend                                |
+| Install dependencies frontend    | npm install                               | Install all required dependencies for the project.      |
+| Run iUPi app       |npm run dev                   | Run the app                                  |
 ---
 
 ## Video iUPi
@@ -106,6 +108,10 @@ You can try the live demo by clicking on the following link:
 <p align="left">
 <a href="https://es.react.dev/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/> </a>
 <a https://nextjs.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/next%20js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white"/> </a>
+
+<a href="https://www.python.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue"/> </a>
+<a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=green"/> </a>
+<a href="https://www.postgresql.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/PostgreSQL-green?style=for-the-badge"/> </a>
 </p>
 
 
