@@ -64,7 +64,7 @@ MIDDLEWARE = [
 ]
 
 
-ROOT_URLCONF = 'iupi.urls'
+ROOT_URLCONF = 'iupi.iupi.urls'
 
 TEMPLATES = [
     {
@@ -82,7 +82,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'iupi.wsgi.application'
+WSGI_APPLICATION = 'iupi.iupi.wsgi.application'
 
 
 # Database
