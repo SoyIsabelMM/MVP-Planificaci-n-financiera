@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Button } from '../ButtonCustom/ButtonCustom';
 
-export default function Modal({ isOpen, onClose }) {
+export default function Modal({ isOpen, onClose, modal }) {
   if (!isOpen) return null;
 
   const handleClose = () => {
@@ -16,7 +16,7 @@ export default function Modal({ isOpen, onClose }) {
       <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-md ">
         <div className="flex justify-between items-center">
           <h2 className="w-full text-2xl font-medium  text-center">
-            Perfil de inversor
+            {modal.title}
           </h2>
 
           <button
@@ -32,27 +32,18 @@ export default function Modal({ isOpen, onClose }) {
           </button>
         </div>
 
-        <Image
-          src="/image/inversor-profile.png"
-          alt="Inversor"
-          width={500}
-          height={500}
-        />
+        <Image src={modal.image} alt="Inversor" width={500} height={500} />
 
         <p className="text-center text-gray-500 mt-4 text-base font-normal">
-          Antes de continuar, nos gustaría conocer tus conocimientos en el mundo
-          de las inversiones.
+          {modal.description}
         </p>
         <p className="text-center text-gray-500 mt-4 text-base font-normal">
-          De esta manera te podemos ofrecer recomendaciones y sugerencias que
-          sean acertadas.
+          {modal.description2}
         </p>
 
         <div className="flex flex-col justify-center mt-5">
           <Button className=" w-[288] mx-auto"> Realizar</Button>
-          <p className="text-black text-sm mt-1 text-center">
-            Podes encontrar la opción nuevamente en tu perfil.
-          </p>
+          <p className="text-black text-sm mt-1 text-center">{modal.option} </p>
         </div>
       </div>
     </div>

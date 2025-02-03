@@ -30,13 +30,11 @@ export default function ExpertTalks({ talks }) {
             </h2>
           </div>
 
-          <div className="  max-w-[450px]">
-            <h3 className=" p-2 font-bold text-lg mb-1">{talk.speaker}</h3>
-            <p className=" px-2 text-gray-600 text-lg mb-2">{talk.date}</p>
+          <div className=" p-4 mx-auto max-w-[450px]">
+            <h3 className="font-bold text-lg mb-1">{talk.speaker}</h3>
+            <p className="text-gray-600 text-lg mb-2">{talk.date}</p>
 
-            <p className="px-2 text-gray-600 text-lg mb-6">
-              {talk.description}
-            </p>
+            <p className=" text-gray-600 text-lg mb-6">{talk.description}</p>
             <button className=" text-xl font-normal flex items-center justify-between w-full bg-[#FBF3FF] text-black py-2 px-6 rounded hover:bg-[#FBF3FF] transition duration-300">
               Ingresa a la sala
               <Image
