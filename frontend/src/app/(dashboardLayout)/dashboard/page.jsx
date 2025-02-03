@@ -18,6 +18,7 @@ import { MonthSelector } from '@/components/MonthSelector/MonthSelector';
 import HorizontalDivider from '@/components/HorizontalDivider/HorizontalDivider';
 import Modal from '@/components/Modal/Modal';
 import { useEffect } from 'react';
+import { inversorProfile } from '@/constants/modalsInformation';
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -66,7 +67,12 @@ export default function DashboardPage() {
 
   return (
     <>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}></Modal>
+      <Modal
+        modal={inversorProfile[0]}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      ></Modal>
+
       <div className="flex gap-4 max-[1220px]:flex-col">
         <div className="flex min-[1220px]:flex-col max-[900px]:flex-col gap-4">
           <section>
