@@ -19,16 +19,6 @@ export const loginFields = [
     tabIndex: 2,
     activeForgot: true,
   },
-  {
-    id: 'dniField',
-    name: 'dni',
-    type: 'text',
-    label: 'DNI',
-    placeholder: 'DNI',
-    icon: '/image/dni-icon.png',
-    tabindex: 3,
-    autoComplete: 'dni',
-  },
 ];
 
 export const registerFields = [
@@ -46,10 +36,20 @@ export const registerFields = [
     id: 'firstName',
     name: 'firstName',
     type: 'text',
-    label: 'Nombre completo',
-    placeholder: 'Nombre completo',
+    label: 'Nombre',
+    placeholder: 'Nombre',
     icon: '/image/dni-icon.png',
     tabIndex: 2,
+    autoComplete: 'firstName',
+  },
+  {
+    id: 'lastName',
+    name: 'lastName',
+    type: 'text',
+    label: 'Apellido',
+    placeholder: 'Apellido',
+    icon: '/image/dni-icon.png',
+    tabIndex: 3,
     autoComplete: 'firstName',
   },
   {
@@ -57,9 +57,9 @@ export const registerFields = [
     name: 'email',
     type: 'email',
     label: 'Correo electronico',
-    placeholder: 'Usuario',
+    placeholder: 'Email',
     icon: '/image/user-icon.png',
-    tabIndex: 3,
+    tabIndex: 4,
     autoComplete: 'email',
   },
   {
@@ -69,7 +69,7 @@ export const registerFields = [
     placeholder: 'Contraseña',
     label: 'Contraseña',
     icon: '/image/eye-open-icon.png',
-    tabIndex: 4,
+    tabIndex: 5,
     activeForgot: true,
   },
 ];
